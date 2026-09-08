@@ -33,6 +33,9 @@ platforms :mingw, :x64_mingw, :mswin do
   gem 'win32ole', '>= 1.8', '< 2.0'
 end
 
+# Puppet on Ruby 3.3 / 3.4 has some missing dependencies
+gem 'syslog', '~> 0.3' if RUBY_VERSION >= '3.4'
+
 group :development do
   gem 'rubocop'
 end
@@ -42,6 +45,6 @@ group :test do
 end
 
 group :release, optional: true do
-  gem 'faraday-retry', require: false
-  gem 'github_changelog_generator', require: false
+  gem 'faraday-retry', '~> 2.1', require: false
+  gem 'github_changelog_generator', '~> 1.18', require: false
 end
