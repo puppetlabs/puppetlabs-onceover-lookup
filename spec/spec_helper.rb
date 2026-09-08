@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "onceover/lookup"
+require "puppetlabs-onceover/lookup"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

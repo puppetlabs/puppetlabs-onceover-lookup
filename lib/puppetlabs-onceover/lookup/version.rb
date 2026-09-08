@@ -1,4 +1,4 @@
-class Onceover
+class PuppetlabsOnceover
   module Lookup
     VERSION = "0.1.1"
   end

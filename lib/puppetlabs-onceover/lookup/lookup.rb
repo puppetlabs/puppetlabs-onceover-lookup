@@ -2,7 +2,7 @@ require "erb"
 require "tempfile"
 require "json"
 
-class Onceover
+class PuppetlabsOnceover
   module Lookup
     module Lookup
       PUPPET_CONF       = ".puppet.conf.onceover"
@@ -61,12 +61,12 @@ class Onceover
       def self.check_setup
         status = true
         if ! File.exist? PUPPET_CONF
-          logger.error "#{PUPPET_CONF} does not exist, please run `onceover run lookup setup` to create it"
+          logger.error "#{PUPPET_CONF} does not exist, please run `puppetlabs-onceover run lookup setup` to create it"
           status = false
         end
 
         if ! File.exist? ENVIRONMENT_CONF
-          logger.error "#{ENVIRONMENT_CONF} does not exist, please run `onceover run spec ...` to create it"
+          logger.error "#{ENVIRONMENT_CONF} does not exist, please run `puppetlabs-onceover run spec ...` to create it"
           status = false
         end
 
@@ -82,7 +82,7 @@ class Onceover
             else
               # resolve factset from Onceover's built-in facts
               # https://stackoverflow.com/a/10083594/3441106
-              spec = Gem::Specification.find_by_name("onceover")
+              spec = Gem::Specification.find_by_name("puppetlabs-onceover")
               gem_root = spec.gem_dir
 
               input_factset = File.join(gem_root, "factsets", "#{factset}.json")

@@ -1,7 +1,7 @@
 # Create a class to hold the new command definition.  The class defined should
 # match the file we are contained in.
-require "onceover/lookup/lookup"
-class Onceover
+require "puppetlabs-onceover/lookup/lookup"
+class PuppetlabsOnceover
   class CLI
     class Lookup
 
@@ -18,7 +18,7 @@ Run the `puppet lookup` command to use onceover configuration
           option nil, :factset, 'Extract and use this factset with `puppet lookup`', argument: :optional
 
           run do |opts, args, cmd|
-            Onceover::Lookup::Lookup.run(opts[:passthru], opts[:factset])
+            PuppetlabsOnceover::Lookup::Lookup.run(opts[:passthru], opts[:factset])
           end
         end
       end
@@ -32,11 +32,11 @@ Run the `puppet lookup` command to use onceover configuration
           usage 'setup'
           summary "Setup the onceover to work with `puppet lookup`"
           description <<-DESCRIPTION
-Setup onceover-lookup by creating .puppet.conf.onceover
+Setup puppetlabs-onceover-lookup by creating .puppet.conf.onceover
           DESCRIPTION
 
           run do |opts, args, cmd|
-            Onceover::Lookup::Lookup.setup
+            PuppetlabsOnceover::Lookup::Lookup.setup
           end
         end
       end
@@ -44,7 +44,6 @@ Setup onceover-lookup by creating .puppet.conf.onceover
   end
 end
 
-Onceover::CLI::Run.command.add_command(Onceover::CLI::Lookup.command)
+PuppetlabsOnceover::CLI::Run.command.add_command(PuppetlabsOnceover::CLI::Lookup.command)
 # sub-sub command
-Onceover::CLI::Lookup.command.add_command(Onceover::CLI::Setup.command)
-
+PuppetlabsOnceover::CLI::Lookup.command.add_command(PuppetlabsOnceover::CLI::Setup.command)

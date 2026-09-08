@@ -1,4 +1,4 @@
-# Onceover-Lookup
+# Puppetlabs-Onceover-Lookup
 
 Lookup (hiera) support for 
 [Onceover](https://github.com/dylanratcliffe/onceover) - _The gateway drug to 
@@ -17,11 +17,11 @@ raw `puppet lookup` command and the plugin also provides a means to re-write
 factsets to work with the the `puppet lookup` command.
 
 ## Installation
-Add `onceover-lookup` to your `Gemfile` and run `bundle install`:
+Add `puppetlabs-onceover-lookup` to your `Gemfile` and run `bundle install`:
 
 **Gemfile**
 ```ruby
-gem 'onceover-lookup'
+gem 'puppetlabs-onceover-lookup'
 ```
 
 ## Configuration
@@ -31,7 +31,7 @@ Onceover-lookup requires a valid puppet configuration file at
 To create this file initially or to reset to defaults:
  
 ```shell
-bundle exec onceover run lookup setup
+bundle exec puppetlabs-onceover run lookup setup
 ```
 
 Once the file is created, you can edit/maintain it yourself.
@@ -115,23 +115,23 @@ It is an error have _neither_ `/hiera.yaml` or `/spec/hiera.yaml`.
 ### Help on onceover-lookup
 
 ```shell
-bundle exec onceover bundle exec onceover run lookup --help
+bundle exec puppetlabs-onceover run lookup --help
 ```
 
 ### Help on puppet lookup
 ```shell
-bundle exec onceover run lookup --passthru="--help"
+bundle exec puppetlabs-onceover run lookup --passthru="--help"
 ```
 
 ### Lookup a value and explain
 ```shell
-bundle exec onceover run lookup --passthru="profile::foo::bar --explain"
+bundle exec puppetlabs-onceover run lookup --passthru="profile::foo::bar --explain"
 ```
 
 ### Lookup a value using a named factset from onceover
 
 ```shell
-bundle exec onceover run lookup --passthru="profile::foo::bar --explain" --factset CentOS-7.0-64
+bundle exec puppetlabs-onceover run lookup --passthru="profile::foo::bar --explain" --factset CentOS-7.0-64
 ```
 
 * Since factsets are files, names are case-sensitive
@@ -139,7 +139,7 @@ bundle exec onceover run lookup --passthru="profile::foo::bar --explain" --facts
 ### Lookup a value using your own custom factset
 
 ```shell
-bundle exec onceover run lookup --passthru="profile::foo::bar --explain" --factset spec/factsets/Windows_Server-2012r2-64-choco.json
+bundle exec puppetlabs-onceover run lookup --passthru="profile::foo::bar --explain" --factset spec/factsets/Windows_Server-2012r2-64-choco.json
 ```
 
 * Since factsets are files, names are case-sensitive
@@ -147,7 +147,7 @@ bundle exec onceover run lookup --passthru="profile::foo::bar --explain" --facts
 ### Debug Puppet during a lookup/provide trace information
 
 ```shell
-bundle exec onceover run lookup --passthru="profile::foo::bar --explain --trace --evaltrace --debug"
+bundle exec puppetlabs-onceover run lookup --passthru="profile::foo::bar --explain --trace --evaltrace --debug"
 ```
 
 * Parameters in `--passthru` are sent straight through to the `puppet lookup`
@@ -194,4 +194,4 @@ PRs welcome :)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/declarativesystems/onceover-lookup
+Bug reports and pull requests are welcome on GitHub at https://github.com/puppetlabs/puppetlabs-onceover-lookup

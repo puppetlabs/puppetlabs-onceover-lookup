@@ -18,7 +18,7 @@ def windows?
 end
 
 task :syntax do
-  paths = ['lib', 'spec/onceover']
+  paths = ['lib', 'spec/puppetlabs-onceover']
   require 'find'
   Find.find(*paths) do |path|
     next unless path =~ /\.rb$/
