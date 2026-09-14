@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = Gem::Requirement.new('>= 3.2')
 
-  spec.add_dependency 'puppetlabs-onceover', '>= 5.0.4'
+  spec.add_dependency 'puppetlabs-onceover', '~> 5.0', '>= 5.0.4'
   spec.add_dependency 'rake', '~> 13.3'
   spec.add_dependency 'rspec', '~> 3.13'
 end
