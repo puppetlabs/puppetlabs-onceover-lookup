@@ -26,7 +26,7 @@ class PuppetlabsOnceover
         hiera_yaml = resolve_hiera_yaml
         lookup_tmp_dir = LOOKUP_TMP_DIR
 
-        content = ERB.new(template, nil, '-').result(binding)
+        content = ERB.new(template, trim_mode: '-').result(binding)
 
         # We can't use a ruby block here - file handle needs to be synced and
         # closed before puppet runs or it will read and empty file and not tell
