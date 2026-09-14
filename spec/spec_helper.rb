@@ -1,3 +1,11 @@
+if ENV['COVERAGE']
+  require 'simplecov'
+  SimpleCov.start do
+    skip '/spec/'
+    skip '/vendor/'
+  end
+end
+
 require "bundler/setup"
 require "puppetlabs-onceover/lookup"
 
