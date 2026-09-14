@@ -21,6 +21,15 @@ gemspec
 # and no auth is attempted against Puppetcore.
 gem 'puppet', ENV['PUPPET_GEM_VERSION'] || '~> 8', source: gemsource_puppetcore
 
+# facter is a runtime dependency of puppet, but pinning `puppet`'s own source
+# does NOT pin its transitive dependencies to that same source -- bundler
+# still resolves facter from whichever source(s) declare it, so without this
+# explicit pin facter would silently keep resolving from public rubygems.org
+# (built from the public facter repo) even when puppet itself correctly comes
+# from Puppetcore (built from the private facter-private source). Pin it
+# explicitly so both come from the same place.
+gem 'facter', source: gemsource_puppetcore
+
 # Windows platform runtime deps. The published puppet/onceover rubygems.org
 # artefacts are built on Linux and guard `ffi` / `win32ole` with build-host
 # platform checks, so those deps never make it into the Linux-published
